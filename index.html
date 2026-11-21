@@ -1,0 +1,651 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Ease Home Connect — Book Trusted Pros in Nigeria</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800;900&family=Playfair+Display:wght@700;900&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:Inter,sans-serif;background:#0f0f0e}
+a{color:inherit;text-decoration:none}
+button{cursor:pointer}
+.top{
+ position:fixed;top:0;left:0;right:0;z-index:99;
+ display:flex;justify-content:space-between;
+ align-items:center;padding:14px 18px;
+ color:#fff;mix-blend-mode:difference
+}
+.logo{font-weight:900;font-size:19px;line-height:1}
+.logo span{color:#22c55e}
+.logo small{font-size:10px;letter-spacing:2px;opacity:.8}
+.nav{display:none;gap:16px;font-size:13px;font-weight:600}
+@media(min-width:800px){.nav{display:flex}}
+.btn{background:#fff;color:#000;border:0;
+ padding:10px 16px;border-radius:100px;
+ font-weight:800;font-size:13px}
+.btn-g{background:#22c55e;color:#fff}
+section{
+ min-height:100vh;position:relative;
+ display:flex;align-items:flex-end;
+ overflow:hidden
+}
+.bg{position:absolute;inset:0}
+.bg img{width:100%;height:100%;object-fit:cover}
+.overlay{
+ position:absolute;inset:0;
+ background:linear-gradient(180deg,rgba(0,0,0,.1),rgba(0,0,0,.75))
+}
+.content{
+ position:relative;z-index:2;
+ padding:90px 20px 36px;color:#fff;
+ width:100%;max-width:1100px;margin:auto
+}
+.kicker{font-size:11px;letter-spacing:3px;text-transform:uppercase}
+h1,.big{
+ font-family:'Playfair Display',serif;
+ font-size:52px;line-height:.95
+}
+@media(min-width:800px){h1,.big{font-size:86px}}
+.sub{margin:16px 0 20px;max-width:560px;line-height:1.6}
+.pill{
+ display:flex;gap:8px;flex-wrap:wrap;
+ background:rgba(255,255,255,.15);
+ padding:10px;border-radius:100px;align-items:center
+}
+.pill select{
+ background:transparent;border:0;color:#fff;
+ outline:0;font-size:14px
+}
+.pill select option{color:#000}
+.pill button{
+ background:#22c55e;color:#fff;border:0;
+ padding:10px 18px;border-radius:100px;font-weight:800
+}
+.wrap{background:#fff;padding:48px 18px}
+.inner{max-width:1100px;margin:auto}
+.chips{display:flex;gap:8px;flex-wrap:wrap;margin:20px 0}
+.chip{
+ border:1px solid #ddd;padding:9px 14px;
+ border-radius:100px;background:#fff;font-weight:600
+}
+.chip.on{background:#111;color:#fff}
+.grid{display:grid;gap:16px}
+@media(min-width:700px){.grid{grid-template-columns:1fr 1fr 1fr}}
+.card{border-radius:22px;overflow:hidden;background:#fafaf8;border:1px solid #eee}
+.card img{width:100%;height:200px;object-fit:cover}
+.card-b{padding:16px}
+.price{font-weight:900;font-size:18px}
+.tag{font-size:11px;background:#e7f9ee;color:#15803d;padding:5px 9px;border-radius:100px;font-weight:700}
+.card button{
+ width:100%;margin-top:12px;background:#111;
+ color:#fff;border:0;padding:12px;border-radius:12px;font-weight:800
+}
+.box{background:#f6f3ec;border-radius:24px;padding:24px}
+.box input,.box select,.box textarea{
+ width:100%;padding:13px;border-radius:12px;
+ border:1px solid #ddd;margin:6px 0
+}
+.dark{background:#141210;color:#fff}
+.cream{background:#f7f1e6}
+.modal{
+ position:fixed;inset:0;background:rgba(0,0,0,.7);
+ display:none;align-items:center;justify-content:center;
+ z-index:200;padding:16px
+}
+.modal.open{display:flex}
+.modal-in{
+ background:#fff;width:100%;max-width:460px;
+ border-radius:20px;padding:20px;
+ max-height:90vh;overflow:auto
+}
+.modal-in input,.modal-in select,.modal-in textarea{
+ width:100%;padding:12px;border:1px solid #ddd;
+ border-radius:12px;margin:6px 0
+}
+</style>
+</head>
+<body>
+
+<div class="top">
+ <div class="logo">Ease Home <span>Connect</span><br>
+ <small>LAGOS • NIGERIA</small></div>
+ <div class="nav">
+  <a href="#services">Services</a>
+  <a href="#how">How it works</a>
+  <a href="#pricing">Pricing</a>
+  <a href="#admin">Admin</a>
+ </div>
+ <div style="display:flex;gap:8px">
+  <button class="btn" onclick="openModal('loginModal')">Login</button>
+  <button class="btn btn-g" onclick="openModal('joinModal')">Join as Pro</button>
+ </div>
+</div>
+<!-- HERO -->
+<section>
+ <div class="bg">
+  <img src="https://images.unsplash.com/photo-1581578731548-c64695cc6952?w=1600">
+ </div>
+ <div class="overlay"></div>
+ <div class="content">
+  <div class="kicker">Ease Home Connect • Lagos • Abuja • Uyo</div>
+  <h1>Your home,<br>taken care of.</h1>
+  <p class="sub">
+   Book verified cleaners, plumbers, hair stylists,
+   electricians, nannies & more — in minutes.
+   Providers set their own prices. Pay securely.
+  </p>
+  <div class="pill">
+   <select id="qService">
+    <option value="">All services</option>
+    <option>Cleaner</option>
+    <option>Plumber</option>
+    <option>Electrician</option>
+    <option>Hair Stylist</option>
+    <option>Makeup Artist</option>
+    <option>Nanny</option>
+    <option>Photographer</option>
+   </select>
+   <select id="qCity">
+    <option value="">All cities</option>
+    <option>Lagos</option>
+    <option>Abuja</option>
+    <option>Port Harcourt</option>
+    <option>Uyo</option>
+    <option>Ibadan</option>
+   </select>
+   <button onclick="searchNow()">Search →</button>
+  </div>
+  <p style="margin-top:12px;font-size:13px">
+   ⭐ 4.9 • 2,400+ bookings • Verified only • WhatsApp +2349125020119
+  </p>
+ </div>
+</section>
+
+<!-- DOMESTIC -->
+<section>
+ <div class="bg">
+  <img src="https://images.unsplash.com/photo-1622560480605-d83c853bc5c3?w=1600">
+ </div>
+ <div class="overlay"></div>
+ <div class="content">
+  <div class="kicker">01 — Domestic</div>
+  <h2 class="big">Cleaned.<br>Sorted. Calm.</h2>
+  <p class="sub">
+   Cleaners, nannies, cooks & housekeepers —
+   checked and rated by real customers.
+  </p>
+  <button class="btn" onclick="filterCat('Domestic')">
+   Explore Domestic →
+  </button>
+ </div>
+</section>
+
+<!-- BEAUTY -->
+<section>
+ <div class="bg">
+  <img src="https://images.unsplash.com/photo-1562322140-8baeececf3df?w=1600">
+ </div>
+ <div class="overlay"></div>
+ <div class="content">
+  <div class="kicker">02 — Beauty</div>
+  <h2 class="big">Beauty,<br>at your door.</h2>
+  <p class="sub">
+   Hair stylists, barbers, makeup artists,
+   nail techs & massage therapists.
+  </p>
+  <button class="btn" onclick="filterCat('Beauty')">
+   Explore Beauty →
+  </button>
+ </div>
+</section>
+
+<!-- TECHNICAL -->
+<section>
+ <div class="bg">
+  <img src="https://images.unsplash.com/photo-1621905251189-08b45d6a269e?w=1600">
+ </div>
+ <div class="overlay"></div>
+ <div class="content">
+  <div class="kicker">03 — Technical</div>
+  <h2 class="big">Fixed right,<br>first time.</h2>
+  <p class="sub">
+   Electricians, plumbers, AC technicians
+   & pest control. Upfront price. No wahala.
+  </p>
+  <button class="btn" onclick="filterCat('Technical')">
+   Explore Technical →
+  </button>
+ </div>
+</section>
+
+<!-- LIFESTYLE -->
+<section>
+ <div class="bg">
+  <img src="https://images.unsplash.com/photo-1606800052052-a08af7148866?w=1600">
+ </div>
+ <div class="overlay"></div>
+ <div class="content">
+  <div class="kicker">04 — Lifestyle</div>
+  <h2 class="big">Life,<br>made easy.</h2>
+  <p class="sub">
+   Laundry, tailors, photographers, tutors,
+   gardeners & event decorators.
+  </p>
+  <button class="btn" onclick="filterCat('Lifestyle')">
+   Explore Lifestyle →
+  </button>
+ </div>
+</section>
+
+<!-- MARKETPLACE -->
+<div class="wrap" id="services">
+ <div class="inner">
+  <div class="kicker" style="color:#16a34a">MARKETPLACE</div>
+  <h2 style="font-size:38px;line-height:1;margin-top:8px">
+   Find your pro.<br>Book in 2 mins.
+  </h2>
+  <p style="color:#555;margin-top:10px">
+   All providers are verified by Admin before they go public.
+   Each provider sets their own price list.
+  </p>
+
+  <div class="chips">
+   <button class="chip on" onclick="setCat('All',this)">All</button>
+   <button class="chip" onclick="setCat('Domestic',this)">Domestic</button>
+   <button class="chip" onclick="setCat('Beauty',this)">Beauty</button>
+   <button class="chip" onclick="setCat('Technical',this)">Technical</button>
+   <button class="chip" onclick="setCat('Lifestyle',this)">Lifestyle</button>
+  </div>
+
+  <div class="grid" id="providerGrid"></div>
+ </div>
+</div>
+
+<!-- HOW + BOOKING -->
+<div class="wrap cream" id="how">
+ <div class="inner">
+  <div class="kicker">HOW IT WORKS</div>
+  <h2 style="font-size:36px;margin:10px 0">
+   Booked in minutes,<br>not days.
+  </h2>
+  <p style="color:#555;line-height:1.6">
+   1. Search service & city<br>
+   2. Compare verified pros & their price list<br>
+   3. Book date & pay securely<br>
+   4. Pro comes, you rate them.
+  </p>
+
+  <div class="box" style="margin-top:18px">
+   <h3>Book a Service</h3>
+   <input id="bkName" placeholder="Your name">
+   <input id="bkPhone" placeholder="WhatsApp number">
+   <select id="bkService">
+    <option>Cleaner - Price by Provider</option>
+    <option>Plumber - Price by Provider</option>
+    <option>Electrician - Price by Provider</option>
+    <option>Hair Stylist - Price by Provider</option>
+    <option>Makeup Artist - Price by Provider</option>
+    <option>Nanny - Price by Provider</option>
+   </select>
+   <input type="date" id="bkDate">
+   <select id="bkCity">
+    <option>Lagos</option>
+    <option>Abuja</option>
+    <option>Port Harcourt</option>
+    <option>Uyo</option>
+    <option>Ibadan</option>
+   </select>
+   <button onclick="bookNow()" style="width:100%;background:#22c55e;color:#fff;border:0;padding:14px;border-radius:12px;font-weight:900">
+    Book Now →
+   </button>
+   <p id="bkMsg" style="font-size:13px;margin-top:8px"></p>
+   <p style="font-size:12px;color:#666">
+    Need help? WhatsApp: +2349125020119<br>
+    Email: easehomeconnect@yahoo.com
+   </p>
+  </div>
+ </div>
+</div>
+
+<!-- PRICING FOR PROVIDERS -->
+<div class="wrap" id="pricing">
+ <div class="inner">
+  <div class="kicker" style="color:#16a34a">FOR PROVIDERS</div>
+  <h2 style="font-size:36px;margin:10px 0">
+   Grow your business<br>on Ease Home Connect.
+  </h2>
+  <p style="color:#555">Set your own prices. Keep your customers.</p>
+  <div class="grid" style="margin-top:18px">
+   <div class="card"><div class="card-b">
+    <span class="tag">STARTER</span>
+    <h3 style="margin:10px 0">₦5,000 / month</h3>
+    <p style="color:#555">Profile listing • 10 bookings / month • Your price list</p>
+    <button onclick="subscribe('Starter ₦5,000')">Subscribe →</button>
+   </div></div>
+   <div class="card" style="border:2px solid #111"><div class="card-b">
+    <span class="tag">MOST POPULAR</span>
+    <h3 style="margin:10px 0">₦10,000 / month</h3>
+    <p style="color:#555">Unlimited bookings • Verified badge • Top search</p>
+    <button onclick="subscribe('Pro ₦10,000')">Subscribe →</button>
+   </div></div>
+   <div class="card"><div class="card-b">
+    <span class="tag">BUSINESS</span>
+    <h3 style="margin:10px 0">₦20,000 / month</h3>
+    <p style="color:#555">Team of 5 • Featured homepage</p>
+    <button onclick="subscribe('Business ₦20,000')">Subscribe →</button>
+   </div></div>
+  </div>
+ </div>
+  </div>
+  <!-- ADMIN -->
+<div class="wrap dark" id="admin">
+ <div class="inner">
+  <div class="kicker">ADMIN DASHBOARD</div>
+  <h2 style="font-size:36px;margin:10px 0">
+   Control everything.
+  </h2>
+  <p style="opacity:.7">
+   Admin password for demo: <b>admin123</b>
+  </p>
+  <button class="btn" style="margin-top:14px"
+   onclick="adminLogin()">
+   🔐 Admin Login
+  </button>
+
+  <div id="adminBox"
+   style="display:none;margin-top:20px;background:#fff;color:#111;border-radius:18px;padding:16px">
+   <p>
+    <b>Bookings:</b> <span id="statBook">0</span> |
+    <b>Providers:</b> <span id="statProv">0</span> |
+    <b>Revenue:</b> <span id="statRev">₦0</span> |
+    <b>Visits:</b> <span id="statVisit">0</span>
+   </p>
+
+   <h4 style="margin:14px 0 8px">Latest Bookings</h4>
+   <div id="adminTable"></div>
+
+   <h4 style="margin:14px 0 8px">
+    Providers awaiting approval
+   </h4>
+   <div id="pendingList"></div>
+  </div>
+
+  <p style="margin-top:18px;opacity:.8;font-size:13px;line-height:1.7">
+   <b>Ease Home Connect</b> • Lagos, Nigeria<br>
+   Email: easehomeconnect@yahoo.com<br>
+   WhatsApp: +2349125020119<br>
+   Owner: Uwakwebeverly@yahoo.com
+  </p>
+ </div>
+</div>
+
+<!-- LOGIN MODAL -->
+<div class="modal" id="loginModal">
+ <div class="modal-in">
+  <h3>Login — Ease Home Connect</h3>
+  <select id="loginRole">
+   <option>Customer</option>
+   <option>Provider</option>
+  </select>
+  <input id="loginEmail" placeholder="Email">
+  <input type="password" placeholder="Password">
+  <button onclick="doLogin()"
+   style="width:100%;background:#111;color:#fff;padding:13px;border:0;border-radius:12px;font-weight:800">
+   Login
+  </button>
+  <button onclick="closeModal('loginModal')">Close</button>
+ </div>
+</div>
+
+<!-- JOIN MODAL — PROVIDER SETS OWN PRICE -->
+<div class="modal" id="joinModal">
+ <div class="modal-in">
+  <h3>Join as Provider</h3>
+  <p style="font-size:13px;color:#555">
+   Set your own prices. Customers will see your price list.
+  </p>
+  <input id="pName" placeholder="Full name">
+  <input id="pService" placeholder="Service e.g Plumber">
+  <input id="pCity" placeholder="City e.g Lagos">
+  <input id="pPrice" placeholder="Starting price e.g 8000">
+  <textarea id="pPriceList" placeholder="Your Price List - one per line. Example:
+Basic Cleaning - 8000
+Deep Cleaning - 15000
+Office Cleaning - 20000"></textarea>
+  <input id="pPhone" placeholder="WhatsApp number">
+  <textarea id="pDesc" placeholder="About you, experience"></textarea>
+  <button onclick="addProvider()"
+   style="width:100%;background:#22c55e;color:#fff;padding:13px;border:0;border-radius:12px;font-weight:800">
+   Submit for Approval →
+  </button>
+  <p style="font-size:12px">
+   Admin must approve before your profile goes public.
+  </p>
+  <button onclick="closeModal('joinModal')">Close</button>
+ </div>
+</div>
+
+<!-- BOOK MODAL -->
+<div class="modal" id="bookModal">
+ <div class="modal-in">
+  <h3 id="bookTitle">Book Provider</h3>
+  <p id="bookInfo" style="font-size:13px;color:#555"></p>
+  <p id="bookPriceList" style="font-size:12px;background:#f0fdf4;padding:10px;border-radius:10px;white-space:pre-line"></p>
+  <input id="mName" placeholder="Your name">
+  <input id="mDate" type="date">
+  <button onclick="confirmBook()"
+   style="width:100%;background:#22c55e;color:#fff;padding:13px;border:0;border-radius:12px;font-weight:800">
+   Confirm Booking
+  </button>
+  <p style="font-size:12px;text-align:center">
+   Help? WhatsApp +2349125020119
+  </p>
+  <button onclick="closeModal('bookModal')">Close</button>
+ </div>
+</div>
+
+<script>
+let providers = [
+ {name:"Adaeze O.",service:"Cleaner",cat:"Domestic",city:"Lagos",price:8000,rating:4.9,reviews:124,img:"https://images.unsplash.com/photo-1581578731548-c64695cc6952?w=800",desc:"5 yrs experience • Deep cleaning",verified:true,priceList:"Basic Cleaning - 8000\nDeep Cleaning - 15000\nOffice Cleaning - 20000"},
+ {name:"Chinedu K.",service:"Plumber",cat:"Technical",city:"Abuja",price:12000,rating:4.8,reviews:98,img:"https://images.unsplash.com/photo-1621905251189-08b45d6a269e?w=800",desc:"Leaks, installations",verified:true,priceList:"Fix Leak - 8000\nInstall Tap - 12000\nFull Plumbing - 25000"},
+ {name:"Funke A.",service:"Hair Stylist",cat:"Beauty",city:"Lagos",price:15000,rating:5.0,reviews:210,img:"https://images.unsplash.com/photo-1562322140-8baeececf3df?w=800",desc:"Braids, wigs, natural hair",verified:true,priceList:"Braids - 15000\nWig Install - 12000\nNatural Hair - 10000"},
+ {name:"Tunde B.",service:"Electrician",cat:"Technical",city:"Ibadan",price:15000,rating:4.7,reviews:76,img:"https://images.unsplash.com/photo-1621905252507-b35492cc74b4?w=800",desc:"Wiring, inverter",verified:true,priceList:"Wiring - 15000\nInverter Install - 30000\nRepairs - 8000"},
+ {name:"Grace E.",service:"Makeup Artist",cat:"Beauty",city:"Port Harcourt",price:20000,rating:4.9,reviews:143,img:"https://images.unsplash.com/photo-1487412947147-5cebf100ffc2?w=800",desc:"Bridal & event glam",verified:true,priceList:"Soft Glam - 20000\nBridal Glam - 50000\nPhotoshoot - 30000"},
+ {name:"Ibrahim M.",service:"Photographer",cat:"Lifestyle",city:"Uyo",price:30000,rating:4.8,reviews:65,img:"https://images.unsplash.com/photo-1606800052052-a08af7148866?w=800",desc:"Weddings, portraits",verified:false,priceList:"Portrait - 30000\nWedding - 100000\nEvent - 50000"}
+];
+
+let bookings = JSON.parse(localStorage.getItem('ehc_bookings') || '[]');
+let pending = JSON.parse(localStorage.getItem('ehc_pending') || '[]');
+let visits = parseInt(localStorage.getItem('ehc_visits') || '0') + 1;
+localStorage.setItem('ehc_visits', visits);
+
+let currentCat = 'All';
+let selectedProv = null;
+
+function fmt(n){
+ return '₦' + n.toLocaleString();
+}
+
+function render(){
+ let sVal = document.getElementById('qService').value;
+ let cVal = document.getElementById('qCity').value;
+ let list = providers.filter(function(p){
+  let okCat = (currentCat === 'All' || p.cat === currentCat);
+  let okS = (!sVal || p.service === sVal);
+  let okC = (!cVal || p.city === cVal);
+  return okCat && okS && okC;
+ });
+
+ let html = '';
+ for(let i=0;i<list.length;i++){
+  let p = list[i];
+  let idx = providers.indexOf(p);
+  html += '<div class="card">';
+  html += '<img src="'+p.img+'">';
+  html += '<div class="card-b">';
+  html += '<b>'+p.name+'</b> ';
+  html += '<span class="tag">'+(p.verified?'✓ Verified':'⏳ Pending')+'</span>';
+  html += '<p style="font-size:13px;color:#666">'+p.service+' • '+p.city+'</p>';
+  html += '<p>⭐ '+p.rating+' ('+p.reviews+' reviews)</p>';
+  html += '<p style="font-size:13px;color:#555">'+p.desc+'</p>';
+  html += '<p class="price">From '+fmt(p.price)+'</p>';
+  if(p.priceList){
+   html += '<p style="font-size:12px;background:#f0fdf4;padding:8px;border-radius:10px;white-space:pre-line">💰 Price List:\n'+p.priceList+'</p>';
+  }
+  html += '<button onclick="openBook('+idx+')">Book Now →</button>';
+  html += '</div></div>';
+ }
+ if(!html){ html = '<p>No provider found.</p>'; }
+ document.getElementById('providerGrid').innerHTML = html;
+}
+
+function setCat(c,el){
+ currentCat = c;
+ let chips = document.querySelectorAll('.chip');
+ for(let i=0;i<chips.length;i++){ chips[i].classList.remove('on'); }
+ el.classList.add('on');
+ render();
+}
+
+function filterCat(c){
+ currentCat = c;
+ document.getElementById('services').scrollIntoView({behavior:'smooth'});
+ render();
+}
+
+function searchNow(){
+ render();
+ document.getElementById('services').scrollIntoView({behavior:'smooth'});
+}
+
+function openModal(id){
+ document.getElementById(id).classList.add('open');
+}
+function closeModal(id){
+ document.getElementById(id).classList.remove('open');
+}
+
+function openBook(i){
+ selectedProv = providers[i];
+ document.getElementById('bookTitle').innerText = 'Book ' + selectedProv.name;
+ document.getElementById('bookInfo').innerText = selectedProv.service + ' • From ' + fmt(selectedProv.price) + ' • ' + selectedProv.city;
+ document.getElementById('bookPriceList').innerText = 'Price List:\n' + (selectedProv.priceList || 'Contact provider');
+ openModal('bookModal');
+}
+
+function confirmBook(){
+ let n = document.getElementById('mName').value || 'Guest';
+ bookings.push({
+  name:n,
+  service:selectedProv.service,
+  city:selectedProv.city,
+  date:document.getElementById('mDate').value || 'ASAP',
+  status:'Booked - Ease Home Connect'
+ });
+ localStorage.setItem('ehc_bookings', JSON.stringify(bookings));
+ alert('✅ Booking confirmed! ' + selectedProv.name + ' will contact you. Help? WhatsApp +2349125020119');
+ closeModal('bookModal');
+ renderAdmin();
+}
+
+function bookNow(){
+ let n = document.getElementById('bkName').value || 'Guest';
+ bookings.push({
+  name:n,
+  service:document.getElementById('bkService').value,
+  city:document.getElementById('bkCity').value,
+  date:document.getElementById('bkDate').value || 'ASAP',
+  status:'Booked - Ease Home Connect'
+ });
+ localStorage.setItem('ehc_bookings', JSON.stringify(bookings));
+ document.getElementById('bkMsg').innerText = '✅ Booking saved! We will contact you on WhatsApp.';
+ renderAdmin();
+}
+
+function addProvider(){
+ let p = {
+  name:document.getElementById('pName').value || 'New Pro',
+  service:document.getElementById('pService').value || 'Cleaner',
+  cat:'Domestic',
+  city:document.getElementById('pCity').value || 'Lagos',
+  price:parseInt(document.getElementById('pPrice').value || '10000'),
+  priceList:document.getElementById('pPriceList').value || '',
+  rating:5.0, reviews:0,
+  img:'https://images.unsplash.com/photo-1581578731548-c64695cc6952?w=800',
+  desc:document.getElementById('pDesc').value,
+  verified:false
+ };
+ pending.push(p);
+ localStorage.setItem('ehc_pending', JSON.stringify(pending));
+ alert('Submitted! Admin will review you. For help: +2349125020119');
+ closeModal('joinModal');
+ renderAdmin();
+}
+
+function subscribe(plan){
+ alert('Thank you! To subscribe to ' + plan + ', WhatsApp Ease Home Connect: +2349125020119');
+}
+
+function doLogin(){
+ alert('Welcome to Ease Home Connect! Logged in as ' + document.getElementById('loginRole').value);
+ closeModal('loginModal');
+}
+
+function adminLogin(){
+ let pw = prompt('Enter Admin Password (demo: admin123)');
+ if(pw === 'admin123'){
+  document.getElementById('adminBox').style.display = 'block';
+  renderAdmin();
+  document.getElementById('admin').scrollIntoView({behavior:'smooth'});
+ } else {
+  alert('❌ Access Denied');
+ }
+}
+
+function renderAdmin(){
+ document.getElementById('statBook').innerText = bookings.length;
+ document.getElementById('statProv').innerText = providers.length + pending.length;
+ document.getElementById('statVisit').innerText = visits;
+ let total = bookings.length * 12000;
+ document.getElementById('statRev').innerText = fmt(total);
+
+ let t = '';
+ for(let i=0;i<bookings.length;i++){
+  let b = bookings[i];
+  t += '<p style="border-bottom:1px solid #eee;padding:8px 0">'
+   + b.name + ' — ' + b.service + ' • ' + b.city
+   + ' • ' + b.date + ' • ' + b.status + '</p>';
+ }
+ if(!t){ t = '<p>No bookings yet</p>'; }
+ document.getElementById('adminTable').innerHTML = t;
+
+ let pHtml = '';
+ for(let i=0;i<pending.length;i++){
+  let p = pending[i];
+  pHtml += '<div style="display:flex;justify-content:space-between;padding:10px;border:1px solid #eee;border-radius:10px;margin:5px 0">'
+   + '<span><b>'+p.name+'</b> — '+p.service+' • '+p.city+'</span>'
+   + '<button onclick="approveProv('+i+')" style="background:#22c55e;color:#fff;border:0;padding:8px 12px;border-radius:8px">Approve</button>'
+   + '</div>';
+ }
+ if(!pHtml){ pHtml = 'No pending providers'; }
+ document.getElementById('pendingList').innerHTML = pHtml;
+}
+
+function approveProv(i){
+ let p = pending.splice(i,1)[0];
+ p.verified = true;
+ providers.push(p);
+ localStorage.setItem('ehc_pending', JSON.stringify(pending));
+ alert(p.name + ' approved! Now public on Ease Home Connect.');
+ render();
+ renderAdmin();
+}
+
+render();
+renderAdmin();
+</script>
+</body>
+</html>
+  
